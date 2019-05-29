@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="action-bar-title">
+      Ticket Info
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="fields">
+        <p class="property-heading">Task Name:</p>
+      </ion-col>
+      <ion-col class="fields">
+        <p class="property-heading-value">{{this.selectedTickets?.task_name}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="fields">
+          <p class="property-heading">Project Name:</p>
+      </ion-col>
+      <ion-col class="fields">
+          <p class="property-heading-value">{{this.selectedTickets?.project_name}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="fields">
+          <p class="property-heading">Short Comments:</p>
+      </ion-col>
+      <ion-col class="fields">
+          <p class="property-heading-value">{{this.selectedTickets?.short_comments}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="fields">
+          <p class="property-heading">Brief Comments:</p>
+      </ion-col>
+      <ion-col class="fields">
+          <p class="property-heading-value">{{this.selectedTickets?.long_comments}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="fields">
+          <p class="property-heading">Delivery Date:</p>
+      </ion-col>
+      <ion-col class="fields">
+          <p class="property-heading-value">{{this.selectedTickets?.task_delivery_date}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="userData?.user_type != 2">
+      <ion-col >
+        <ion-item class="comments-item">
+          <ion-textarea rows="1" [(ngModel)]="form.historycomments" name="historycomments"
+            placeholder="Enter here..." ></ion-textarea>
+        </ion-item>
+        <ion-item>
+
+          <ion-select [placeholder]="'Status'" (ionChange)="onChange($event)" name="taskStatus">
+            <ion-select-option [value]="item.status_id" *ngFor="let item of ticketStatuslist;">{{item.status_name}}
+            </ion-select-option>
+
+          </ion-select>
+
+        </ion-item>
+        <ion-button class="add-comment" color="primary" size="medium" shape="round" expand="block" (click)="addComment()">Comment
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <div class="container">
+
+
+    <ul>
+      <ng-container *ngFor="let data of ObjectKeys(histroylist); let i = index;">
+        <li *ngFor="let item of histroylist[data]; "><span></span>
+          <div>
+            <div class="title">{{item.firstname}} - <span class="user-name">{{item.user_type_name}}</span></div>
+            <div class="info">{{item.comments}}</div>
+            <div class="type">{{item.created_at}}</div>
+          </div> <span class="number"><span>{{data}}</span> <span></span></span>
+        </li>
+      </ng-container>
+
+
+    </ul>
+  </div>
+</ion-content>

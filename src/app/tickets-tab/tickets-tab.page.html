@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+     
+    <ion-item *ngFor="let item of listItem;" (click)="detailViewlist(item)">
+        <ion-badge *ngIf="item?.task_status == '1'" class="list-status-badge" color="success">Open</ion-badge>
+        <ion-badge *ngIf="item?.task_status == '2'" class="list-status-badge" color="warning">In Progress</ion-badge>
+        <ion-badge *ngIf="item?.task_status == '3'" class="list-status-badge" color="tertiary">Closed</ion-badge>
+        <ion-badge *ngIf="item?.task_status == '4'" class="list-status-badge" color="secondary">Hold</ion-badge>  
+      <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+        <h3>{{item?.task_name}}</h3>       
+        <p>{{item?.project_name}}</p>
+        <p class="item-short-desc">{{item?.short_comments}}</p>
+      </ion-label>
+      <ion-icon name="arrow-forward" end></ion-icon>
+
+    </ion-item>
+  
+  </ion-list>
+
+</ion-content>

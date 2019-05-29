@@ -1,0 +1,29 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+
+// Fonts faces and family
+@import url('https://fonts.googleapis.com/css?family=Mandali:100,300,400,500,600,700');
+
+:root,
+:root[mode="md"],
+:root[mode="ios"] {
+  --ion-font-family: 'Mandali', sans-serif;
+  font-family: var(--ion-font-family) !important;
+  // font-style: extra-bold;
+  // font-weight: 500;
+}
+
+
+.action-bar-title{
+  font-size: 14px;
+}

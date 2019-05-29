@@ -1,0 +1,29 @@
+
+<ion-grid>
+	<ion-row justify-content-center>
+		<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+			<div text-center>
+				<h4>Welcome To Nadi</h4>
+			</div>
+			<div padding>
+				<ion-item>
+					<ion-input type="email" email placeholder="Email" [(ngModel)]="form.email" name="email"></ion-input>
+          
+        </ion-item>
+        <ion-label padding no-margin *ngIf="!isEmailValid">Email invalid</ion-label>
+
+				<ion-item>
+          
+					<ion-input type="password" placeholder="Password" [(ngModel)]="form.password" name="password"></ion-input>
+          
+        </ion-item>
+        <ion-label padding no-margin *ngIf="!isPasswordValid">Password invalid</ion-label>
+			</div>
+
+			<div padding>
+        <ion-button color="primary" size="medium" shape="round" expand="block" (click)="onSignIn()">SignIn</ion-button>
+			</div>
+		</ion-col>
+	</ion-row>
+</ion-grid>
+

@@ -1,0 +1,21 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+
+.list-status-badge{
+  position: absolute;
+  top: 45px;
+  right: 20%;
+  font-size: 10px;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.item-short-desc{
+  font-size: 12px;
+  font-weight: lighter;
+}

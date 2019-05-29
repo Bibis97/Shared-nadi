@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title class="action-bar-title">
+        Create Ticket
+      </ion-title>
+      <!-- <ion-buttons slot="end">
+          <ion-button size="small" color="primary" (click)="saveTicket()">
+              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+              
+              </ion-button>
+        </ion-buttons> -->
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size-md="6" size-lg="5" size-xs="12">
+        <ion-item>
+          <ion-label>Choose Category</ion-label>
+          <ion-select [placeholder]="'Choose Category'" (ionChange)="onChange($event)" name="projectName" >
+            <ion-select-option [value]="item.project_id" *ngFor="let item of categorylist;">{{item.project_name}}</ion-select-option>
+          
+          </ion-select>
+        </ion-item>
+        <ion-item>
+  
+          <ion-input type="text" placeholder="Task Name" [(ngModel)]="form.taskName" name="taskName"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Delivery Date</ion-label>
+          <ion-datetime [(ngModel)]="form.requestedDeliveryDate" name="requestedDeliveryDate" display-format="MMM DD, YYYY" picker-format="DD MMMM YYYY"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+          <!-- <ion-textarea placeholder="Short Desc..."></ion-textarea> -->
+          <ion-input type="text" placeholder="Short Desc" [(ngModel)]="form.shortDesc" name="shortDesc"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-textarea placeholder="Brief Desc..." [(ngModel)]="form.briefDescription" name="briefDescription"></ion-textarea>
+        </ion-item>
+
+        <ion-button class="add-ticket" color="primary" size="medium" shape="round" expand="block" (click)="saveTicket()">Add Ticket </ion-button>
+  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
